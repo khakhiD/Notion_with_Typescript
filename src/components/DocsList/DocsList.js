@@ -1,5 +1,5 @@
 import { push } from "../../utils/router.js"
-import { escapeHTML } from "../../utils/escapeHTML.js"
+import { escapeHTML } from "../../utils/escapeHTML.ts"
 import "@fortawesome/fontawesome-free/css/all.min.css"
 
 const CLASS_NAME = {
