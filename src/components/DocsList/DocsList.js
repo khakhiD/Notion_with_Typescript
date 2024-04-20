@@ -1,4 +1,4 @@
-import { push } from "../../utils/router.js"
+import { push } from "../../utils/router.ts"
 import { escapeHTML } from "../../utils/escapeHTML.ts"
 import "@fortawesome/fontawesome-free/css/all.min.css"
 

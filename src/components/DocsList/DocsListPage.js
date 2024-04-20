@@ -1,7 +1,7 @@
 import DocsList from "./DocsList.js"
 import DocsListHeader from "./DocsListHeader.js"
 import { request } from "../../utils/api.js"
-import { push } from "../../utils/router.js"
+import { push } from "../../utils/router.ts"
 
 export default function DocsListPage({ $target }) {
   const onCreate = async (parentId) => {

@@ -1,4 +1,4 @@
-import { push } from "../../utils/router.js"
+import { push } from "../../utils/router.ts"
 
 const LIST_CLASS_NAME = "sub-docs"
 
