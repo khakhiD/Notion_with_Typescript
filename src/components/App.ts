@@ -1,4 +1,4 @@
-import { initRouter } from "../utils/router.js"
+import { initRouter } from "../utils/router.ts"
 import { request } from "../utils/api.js"
 import debounce from "../utils/debounce.ts"
 import DocsListPage from "./DocsList/DocsListPage.js"
