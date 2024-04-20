@@ -16,7 +16,7 @@ export const request = async (url, options = {}) => {
     } else {
       throw new Error(`API Fetch Error Code: ${res.status}`)
     }
-  } catch (error) {
+  } catch (error: Error) {
     console.log(error)
   }
 }
