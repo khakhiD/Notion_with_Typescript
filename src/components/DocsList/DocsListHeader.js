@@ -1,4 +1,4 @@
-import { push } from "../../utils/router.js"
+import { push } from "../../utils/router.ts"
 
 export default function DocsListHeader({ $target, initialState }) {
   const $header = document.createElement("div")
