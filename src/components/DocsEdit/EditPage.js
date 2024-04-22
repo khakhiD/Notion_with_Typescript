@@ -1,4 +1,4 @@
-import { request } from "../../utils/api.js"
+import { request } from "../../utils/api.ts"
 import Editor from "./Editor.js"
 import EditorFooter from "./EditorFooter.js"
 

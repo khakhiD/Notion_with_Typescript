@@ -1,5 +1,5 @@
 import { initRouter } from "../utils/router.ts"
-import { request } from "../utils/api.js"
+import { request } from "../utils/api.ts"
 import debounce from "../utils/debounce.ts"
 import DocsListPage from "./DocsList/DocsListPage.js"
 import EditPage from "./DocsEdit/EditPage.js"

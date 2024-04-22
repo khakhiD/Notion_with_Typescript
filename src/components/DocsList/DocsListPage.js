@@ -1,6 +1,6 @@
 import DocsList from "./DocsList.js"
 import DocsListHeader from "./DocsListHeader.js"
-import { request } from "../../utils/api.js"
+import { request } from "../../utils/api.ts"
 import { push } from "../../utils/router.ts"
 
 export default function DocsListPage({ $target }) {

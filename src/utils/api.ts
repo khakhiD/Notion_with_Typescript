@@ -1,7 +1,7 @@
 const API_END_POINT = import.meta.env.VITE_API_END_POINT
 const API_USERNAME = import.meta.env.VITE_API_USERNAME
 
-export const request = async (url, options = {}) => {
+export const request: typeof fetch = async (url, options = {}) => {
   try {
     const res = await fetch(`${API_END_POINT}${url}`, {
       ...options,
@@ -18,5 +18,6 @@ export const request = async (url, options = {}) => {
     }
   } catch (error) {
     console.log(error)
+    throw error
   }
 }
