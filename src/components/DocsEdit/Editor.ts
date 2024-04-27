@@ -1,4 +1,14 @@
-import Loading from "./Loading"
+import Loading from "./Loading.ts"
+
+interface EditorProps {
+  $target: HTMLElement
+  initialState: {
+    id: string
+    title: string
+    content: string
+  }
+  onEdit: (data: { id: string; title: string; content: string }, loadingIcon: typeof Loading) => void
+}
 
 const INPUT_TAGNAME = "INPUT"
 const ENTER_KEY = "Enter"
@@ -11,7 +21,7 @@ export default function Editor({
     content: "",
   },
   onEdit,
-}) {
+}: EditorProps) {
   const $editor = document.createElement("div")
   $editor.classList.add("editor")
   $target.appendChild($editor)
@@ -35,8 +45,8 @@ export default function Editor({
   this.render = () => {
     const { title, content } = this.state
     if (isInit) {
-      $editor.querySelector("[name=title]").value = this.state.title
-      $editor.querySelector("[name=content]").value = this.state.content
+      $editor.querySelector<HTMLInputElement>("[name=title]").value = this.state.title
+      $editor.querySelector<HTMLTextAreaElement>("[name=content]").value = this.state.content
     } else {
       $titleInput.type = "text"
       $titleInput.name = "title"
@@ -57,7 +67,7 @@ export default function Editor({
   $editor.addEventListener("keyup", async (e) => {
     loadingIcon.setState(true)
 
-    const { target } = e
+    const target = e.target as HTMLInputElement
     const name = target.getAttribute("name")
 
     // JS는 빈 문자열도 false로 처리하기 때문에 undefined로 체크
@@ -73,7 +83,8 @@ export default function Editor({
   })
 
   $editor.addEventListener("keyup", (e) => {
-    if (e.target.tagName === INPUT_TAGNAME && e.key === ENTER_KEY) {
+    const $contentTextarea = e.target as HTMLTextAreaElement
+    if ($contentTextarea.tagName === INPUT_TAGNAME && e.key === ENTER_KEY) {
       $contentTextarea.focus()
     }
   })

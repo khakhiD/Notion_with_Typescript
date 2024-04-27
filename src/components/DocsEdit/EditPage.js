@@ -1,5 +1,5 @@
 import { request } from "../../utils/api.ts"
-import Editor from "./Editor.js"
+import Editor from "./Editor.ts"
 import EditorFooter from "./EditorFooter.js"
 
 export default function EditPage({
