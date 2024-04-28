@@ -1,6 +1,14 @@
+import { DocumentDetails } from "../../types.ts"
 import { request } from "../../utils/api.ts"
 import Editor from "./Editor.ts"
 import EditorFooter from "./EditorFooter.ts"
+import Loading from "./Loading.ts"
+
+interface EditPageProps {
+  $target: HTMLElement
+  initialState: DocumentDetails
+  onEdit: (data: { id: string; title: string; content: string }, loadingIcon: typeof Loading) => void
+}
 
 export default function EditPage({
   $target,
@@ -10,7 +18,7 @@ export default function EditPage({
     content: "",
   },
   onEdit,
-}) {
+}: EditPageProps) {
   const $page = document.createElement("div")
   $page.className = "edit-page"
 
