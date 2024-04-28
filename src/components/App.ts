@@ -2,7 +2,7 @@ import { initRouter } from "../utils/router.ts"
 import { request } from "../utils/api.ts"
 import debounce from "../utils/debounce.ts"
 import DocsListPage from "./DocsList/DocsListPage.js"
-import EditPage from "./DocsEdit/EditPage.js"
+import EditPage from "./DocsEdit/EditPage.ts"
 
 export default function App({ $target }) {
   const onEdit = debounce(async ({ id, title, content }, loadingIcon) => {
@@ -25,7 +25,11 @@ export default function App({ $target }) {
 
   const editPage = new EditPage({
     $target,
-    initialState: {},
+    initialState: {
+      id: null,
+      title: null,
+      content: null,
+    },
     onEdit,
   })
 
