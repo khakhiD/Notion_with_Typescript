@@ -1,15 +1,21 @@
 import { push } from "../../utils/router.ts"
+import { Documents } from "../../types.ts"
+
+interface EditorFooterProps {
+  $target: HTMLElement
+  initialState: Documents
+}
 
 const LIST_CLASS_NAME = "sub-docs"
 
-export default function EditorFooter({ $target, initialState }) {
+export default function EditorFooter({ $target, initialState }: EditorFooterProps) {
   const $footer = document.createElement("footer")
   $footer.classList.add("edit-footer")
   $target.appendChild($footer)
 
   this.state = initialState
 
-  this.setState = async (nextState) => {
+  this.setState = async (nextState: typeof initialState) => {
     this.state = nextState
     this.render()
   }
@@ -29,7 +35,9 @@ export default function EditorFooter({ $target, initialState }) {
   }
 
   $footer.addEventListener("click", (e) => {
-    const $title = e.target.closest(`.${LIST_CLASS_NAME}`)
+    const $target = e.target as HTMLElement
+    const $title: HTMLElement = $target.closest(`.${LIST_CLASS_NAME}`)
+
     if ($title) {
       const { id } = $title.dataset
       if (id) {
