@@ -3,7 +3,9 @@ import { Documents } from "../../types.ts"
 
 interface EditorFooterProps {
   $target: HTMLElement
-  initialState: Documents
+  initialState: {
+    documents: Documents
+  }
 }
 
 const LIST_CLASS_NAME = "sub-docs"
